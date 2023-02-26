@@ -1,0 +1,7 @@
+.flex-column {
+  display: flex;
+}
+
+.ma-1 {
+  margin: 1rem;
+}
