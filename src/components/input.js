@@ -4,7 +4,7 @@ export class Input extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { edit: false, firstName: '', lastName: '', DateOfBirth: '', email: '' }
+    this.state = { firstName: '', lastName: '', DateOfBirth: '', email: '' }
   }
 
   render() {
