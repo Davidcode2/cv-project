@@ -1,38 +1,11 @@
 import React, { Component } from 'react';
 import { Input } from './input';
-import { GeneralInfoForm } from './general_info_form';
-export class GeneralInfo extends Component {
+export class GeneralInfoForm extends Component {
   editButtonString = "";
 
   constructor(props) {
     super(props);
     this.state = { edit: false, firstName: '', lastName: '', DateOfBirth: '', email: '' }
-  }
-
-  submitForm = (e) => {
-    e.preventDefault();
-  }
-
-  onFirstNameChange = (e) => {
-    this.setState({ firstName: e.target.value });
-  }
-
-  onLastNameChange = (e) => {
-    this.setState({ lastName: e.target.value });
-  }
-
-  onEmailChange = (e) => {
-    this.setState({ email: e.target.value });
-  }
-
-  toggleMode = () => {
-    if (this.state.edit) {
-      this.setState({ edit: false });
-      this.render();
-    } else {
-      this.setState({ edit: true });
-      this.render();
-    }
   }
 
   render() {
@@ -52,14 +25,24 @@ export class GeneralInfo extends Component {
     }
     return (
       <div>
-        <GeneralInfoForm render={({ editable, value, onChange, id }) => {
-          editable
-            ? <input value={value} onChange={onChange} type="text" id={id} />
-            : <div>{value}</div>
-          }
-        } />
+        <form onSubmit={this.submitForm}>
+          <Input
+            value={this.state.firstName}
+            label="First Name"
+            onChange={this.onFirstNameChange}
+            edit={this.state.edit} />
+          <Input
+            value={this.state.lastName}
+            label="Last Name"
+            onChange={this.onLastNameChange}
+            edit={this.state.edit} />
+          <Input
+            value={this.state.email}
+            label="Email"
+            onChange={this.onEmailChange}
+            edit={this.state.edit} />
+          <button type="submit" onClick={this.toggleMode}>{this.editButtonString}</button>
+        </form>
       </div>
     )
   }
-
-}
