@@ -1,4 +1,4 @@
-.flex-column {
+.flex-row {
   display: flex;
 }
 
@@ -8,4 +8,39 @@
 
 .mr-05 {
   margin-right: 0.5rem;
+}
+
+.ma-l-auto {
+  margin-left: auto;
+}
+
+.ma-r-auto {
+  margin-right: auto;
+}
+
+.formSection {
+  background-color: #27a2c4;
+  font-size: 25px;
+}
+
+.align-end {
+  align-self: end;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.gap-5 {
+  gap: 5px;
+}
+
+.justify-content-end {
+  justify-content: end;
+}
+
+button {
+  width: 100px;
+  height: 30px;
+  font-size: .6em;
 }
