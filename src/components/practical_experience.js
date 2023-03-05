@@ -1,8 +1,10 @@
 import { Input } from './input';
 import React, { Component } from 'react';
 export class PracticalExperience extends Component {
+  editButtonString; 
   constructor(props) {
     super(props);
+    this.editButtonString = "Edit";
     this.state = {
       edit: false,
       jobTitle: '',
@@ -35,19 +37,16 @@ export class PracticalExperience extends Component {
   toggleMode = () => {
     if (this.state.edit) {
       this.setState({ edit: false });
+      this.editButtonString = 'Save';
       this.render();
     } else {
       this.setState({ edit: true });
+      this.editButtonString = 'Edit';
       this.render();
     }
   };
 
   render() {
-    if (this.state.edit) {
-      this.editButtonString = 'Save';
-    } else {
-      this.editButtonString = 'Edit';
-    }
     return (
       <div>
         <form className="formSection flex-row space-between" onSubmit={this.submitForm}>
