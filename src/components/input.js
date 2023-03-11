@@ -4,9 +4,9 @@ export function Input(props) {
   let onChange = (e) => {
     setValue(e.target.value);
   };
-  const { edit, label } = props;
+  const { edit, label, type } = props;
   let output = edit ? (
-    <input className="ma-l-auto" onChange={onChange} value={value} id={label} />
+    <input type={type} className="ma-l-auto" onChange={onChange} value={value} id={label} />
   ) : (
     <div>{value}</div>
   );

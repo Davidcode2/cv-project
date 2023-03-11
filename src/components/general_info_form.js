@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Input } from './input';
 export function GeneralInfoForm(props) {
-  const {entries} = props;
+  const { entries } = props;
   const [editButtonString, setEditButtonString] = useState('Edit');
   const [edit, setEdit] = useState(false);
 
@@ -20,7 +20,7 @@ export function GeneralInfoForm(props) {
   };
 
   let items = entries.map((entry, i) => {
-    return <Input key={i} label={entry} edit={edit} />;
+    return <Input type={entry.type} key={i} label={entry.value} edit={edit} />;
   });
 
   let view = (
