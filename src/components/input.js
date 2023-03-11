@@ -1,7 +1,10 @@
-import React  from 'react';
+import React, { useState } from 'react';
 export function Input(props) {
-
-  const { edit, label, value, onChange } = props;
+  const [value, setValue] = useState('');
+  let onChange = (e) => {
+    setValue(e.target.value);
+  };
+  const { edit, label } = props;
   let output = edit ? (
     <input className="ma-l-auto" onChange={onChange} value={value} id={label} />
   ) : (
