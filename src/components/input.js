@@ -13,7 +13,7 @@ export function Input(props) {
   return (
     <div className="flex-row ma-1">
       <label htmlFor={label} className="mr-05 mr-r-auto">
-        {label}:
+        {label}
       </label>
       {output}
     </div>

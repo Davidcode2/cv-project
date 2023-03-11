@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Input } from './input';
-export function GeneralInfoForm(props) {
+export function FormCreator(props) {
   const { entries } = props;
   const [editButtonString, setEditButtonString] = useState('Edit');
   const [edit, setEdit] = useState(false);
