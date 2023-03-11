@@ -1,89 +1,84 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Input } from './input';
-export class GeneralInfoForm extends Component {
-  editButtonString = '';
+export function GeneralInfoForm() {
+  const [editButtonString, setEditButtonString] = useState('Edit');
+  const [edit, setEdit] = useState(false);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [dateOfBirth, setDateOfBirth] = useState('');
+  const [email, setEmail] = useState('');
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      edit: false,
-      firstName: '',
-      lastName: '',
-      dateOfBirth: '',
-      email: '',
-    };
-  }
-
-  submitForm = (e) => {
+  let submitForm = (e) => {
     e.preventDefault();
   };
 
-  onFirstNameChange = (e) => {
-    this.setState({ firstName: e.target.value });
+  let onFirstNameChange = (e) => {
+    setFirstName(e.target.value);
   };
 
-  onLastNameChange = (e) => {
-    this.setState({ lastName: e.target.value });
+  let onLastNameChange = (e) => {
+    setLastName(e.target.value);
   };
 
-  onEmailChange = (e) => {
-    this.setState({ email: e.target.value });
+  let onEmailChange = (e) => {
+    setEmail(e.target.value);
   };
 
-  onDateOfBirthChange = (e) => {
-    this.setState({ dateOfBirth: e.target.value });
+  let onDateOfBirthChange = (e) => {
+    setDateOfBirth(e.target.value);
   };
 
-  toggleMode = () => {
-    if (this.state.edit) {
-      this.setState({ edit: false });
-      this.render();
+  const toggleMode = () => {
+    console.log(editButtonString);
+    if (edit) {
+    console.log("true", editButtonString);
+      setEditButtonString( 'Edit');
+      setEdit(false);
     } else {
-      this.setState({ edit: true });
-      this.render();
+    console.log("else", editButtonString);
+      setEditButtonString( 'Save');
+      setEdit(true);
     }
+    return view;
   };
 
-  render() {
-    if (this.state.edit) {
-      this.editButtonString = 'Save';
-    } else {
-      this.editButtonString = 'Edit';
-    }
-    return (
-      <div>
-        <form className="formSection flex-row space-between" onSubmit={this.submitForm}>
-          <div>
-            <Input
-              value={this.state.firstName}
-              label="First Name"
-              onChange={this.onFirstNameChange}
-              edit={this.state.edit}
-            />
-            <Input
-              value={this.state.lastName}
-              label="Last Name"
-              onChange={this.onLastNameChange}
-              edit={this.state.edit}
-            />
-            <Input
-              value={this.state.email}
-              label="Email"
-              onChange={this.onEmailChange}
-              edit={this.state.edit}
-            />
-            <Input
-              value={this.state.dateOfBirth}
-              label="Date of Birth"
-              onChange={this.onDateOfBirthChange}
-              edit={this.state.edit}
-            />
-          </div>
-            <button className="ma-1 align-end" type="submit" onClick={this.toggleMode}>
-              {this.editButtonString}
-            </button>
-        </form>
-      </div>
-    );
-  }
+  let view = (
+    <div>
+      <form
+        className="formSection flex-row space-between"
+        onSubmit={submitForm}
+      >
+        <div>
+          <Input
+            value={firstName}
+            label="First Name"
+            onChange={onFirstNameChange}
+            edit={edit}
+          />
+          <Input
+            value={lastName}
+            label="Last Name"
+            onChange={onLastNameChange}
+            edit={edit}
+          />
+          <Input
+            value={email}
+            label="Email"
+            onChange={onEmailChange}
+            edit={edit}
+          />
+          <Input
+            value={dateOfBirth}
+            label="Date of Birth"
+            onChange={onDateOfBirthChange}
+            edit={edit}
+          />
+        </div>
+        <button className="ma-1 align-end" type="submit" onClick={toggleMode}>
+          {editButtonString}
+        </button>
+      </form>
+    </div>
+  );
+  return view;
 }

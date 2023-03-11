@@ -1,14 +1,11 @@
-import React, { Component } from 'react';
-import { Input } from './input';
+import React from 'react';
 import { GeneralInfoForm } from './general_info_form';
-export class GeneralInfo extends Component {
+export function GeneralInfo() {
 
-  render() {
     return (
       <div>
         <GeneralInfoForm />
       </div>
     )
-  }
 
 }

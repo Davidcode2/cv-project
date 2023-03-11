@@ -37,11 +37,11 @@ export class PracticalExperience extends Component {
   toggleMode = () => {
     if (this.state.edit) {
       this.setState({ edit: false });
-      this.editButtonString = 'Save';
+      this.editButtonString = 'Edit';
       this.render();
     } else {
       this.setState({ edit: true });
-      this.editButtonString = 'Edit';
+      this.editButtonString = 'Save';
       this.render();
     }
   };
